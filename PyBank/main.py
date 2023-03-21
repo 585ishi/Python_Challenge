@@ -3,7 +3,7 @@ import csv
 
 budget_csv = os.path.join("PyBank/resources/budget_data.csv")
 
-#set up empty lists too store data
+# set up empty lists too store data
 
 dates = []
 profit = []
@@ -13,7 +13,7 @@ loss_changes = []
 total = []
 
 
-#read in the dataset snd store data in empty lists
+# read in the dataset snd store data in empty lists
 
 with open(budget_csv,"r") as budget_data:
     reader = csv.reader(budget_data, delimiter  = ',')
@@ -34,35 +34,35 @@ with open(budget_csv,"r") as budget_data:
             total.append(profit_loss)
             
     
-#calculate teh total number of months
+# calculate teh total number of months
 num_months = len(dates)
 
-#calculate the net total amount of profits and losses over the time perid
+# calculate the net total amount of profits and losses over the time perid
 net_profit = sum(profit)
 net_loss = sum(loss)
 net_total = net_profit + net_loss
 
-#calculate the changes in profits
-#calculate the changes in losses
-#calculate the total changes
+# calculate the changes in profits
+# calculate the changes in losses
+# calculate the total changes
 profit_changes = [profit[i+1]-profit[i] for i in range(len(profit)-1)]
 loss_changes = [loss[i+1]-loss[i] for i in range(len(loss)-1)]
 total_changes = [total[i+1]-total[i] for i in range(len(total)-1)]
 
-#calculate the average changes
+# calculate the average changes
 avg_changes = round(sum(total_changes)/len(total_changes), 2)
 
-#calculate the maximum profit increase and the corresponding date
+# calculate the maximum profit increase and the corresponding date
 max_profit = max(total_changes)
 max_total_date = total_changes.index(max(total_changes)) + 1
 max_profit_date = dates[max_total_date]
 
-#calculate the greatest decrease in profits and the corresponding date
+# calculate the greatest decrease in profits and the corresponding date
 max_loss = min(total_changes)
 min_total_date = total_changes.index(min(total_changes)) + 1
 max_loss_date = dates[min_total_date]
 
-
+# Export the reesult as atext file
 B_D = open('PyBank/Analysis/Budget_Data.txt', "w")
 
 B_D.writelines("") 
