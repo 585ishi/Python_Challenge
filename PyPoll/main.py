@@ -29,34 +29,39 @@ with open(poll_csv, "r") as poll_data:
 
 # calculate total number of votes and every candidates Percent of vote
 # print candidate name, percent of vote and their total number votes
+x = {}
 for candidates, votes in candidates.items():
     percentage = round((votes/total_votes)*100, 3)
+    
+    
+    x.append(print("{candidates}: {percentage}% ({votes}"))
+
 
     # check if which candidate has the highest votes
-    if votes > winning_votes:
-        winning_votes = votes
-        winner = candidates
+#     if votes > winning_votes:
+#         winning_votes = votes
+#         winner = candidates
 
 
-# Export the result as a text file
+# # Export the result as a text file
 
-P_D = open('PyPoll/Analysis/Poll_Data.txt', "w")
+# P_D = open('PyPoll/Analysis/Poll_Data.txt', "w")
 
-P_D.writelines("") 
-P_D.writelines("Election Results", )
-P_D.write("\n")
-P_D.writelines("----------------------------------")
-P_D.write("\n")
-P_D.writelines("Total Votes: " + str(total_votes))
-P_D.write("\n")
-P_D.writelines("----------------------------------")
-P_D.write("\n")
-P_D.writelines(f"{candidates}: {percentage}% ({votes})")
-P_D.write("\n")
-P_D.writelines("----------------------------------")
-P_D.write("\n")
-P_D.writelines(f"winner: {winner}")
+# P_D.writelines("") 
+# P_D.writelines("Election Results", )
+# P_D.write("\n")
+# P_D.writelines("----------------------------------")
+# P_D.write("\n")
+# P_D.writelines("Total Votes: " + str(total_votes))
+# P_D.write("\n")
+# P_D.writelines("----------------------------------")
+# P_D.write("\n")
+# P_D.writelines(x)
+# P_D.write("\n")
+# P_D.writelines("----------------------------------")
+# P_D.write("\n")
+# P_D.writelines(f"winner: {winner}  {votes}")
 
-P_D.close()
+# P_D.close()
 
 
